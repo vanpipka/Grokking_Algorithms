@@ -14,13 +14,16 @@ def person_is_seller(name):
     return name[-1] == 'm'
 
 def search_queque(persons):
+    searched = []
     while persons:
         person = persons.popleft()
-        if person_is_seller(person):
-            print(person + " is а mango seller ! ")
-            return True
-        else:
-            persons += graph[person]
+        if not person in searched:
+            searched.append(person) 
+            if person_is_seller(person):
+                print(person + " is а mango seller ! ")
+                return True
+            else:
+                persons += graph[person]
 
     return False
 
