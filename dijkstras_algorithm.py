@@ -1,23 +1,25 @@
 graph = {}         #Граф переходов со стоимостью каждого ребра
 graph["start"] = {}
-graph["start"]["a"] = 6
-graph["start"]["b"] = 2
+graph["start"]["a"] = 10
 graph["a"] = {}
-graph["a"]["fin"] = 1
+graph["a"]["b"] = 20
+graph["a"]["c"] = 1
 graph["b"] = {}
-graph["b"]["a"] = 3
-graph["b"]["fin"] = 5
+graph["b"]["fin"] = 30
+graph["c"] = {}
+graph["c"]["b"] = 1
+
 graph["fin"] = {}
 
 
 costs = {}          #Таблица стоимостей
-costs["a"] = 6
-costs["b"] = 2
+costs["a"] = 10
+costs["b"] = float('inf')
+costs["c"] = float('inf')
 costs["fin"] = float('inf')
 
 parents = {}        #Таблица родителей
 parents["a"] = "start"
-parents["b"] = "start"
 parents["in"] = None
 
 processed = []      #Таблица обработаных узлов
@@ -28,7 +30,7 @@ def find_lowest_cost_node(costs):
     for node in costs:                                     #Перебираем все узлы
         cost = costs[node]
         if cost < lowest_cost and node not in processed:   #Если узел имеет наименьшую стоимость и не был ранее обработан
-            lowest_cost = cost                             #То он назначаеся новым узлом с наименьшей стоимостью 
+            lowest_cost = cost                             #То он назначаеся новым узлом с наименьшей стоимостью
             lowest_cost_node = node
 
     print(node, ':', lowest_cost)
