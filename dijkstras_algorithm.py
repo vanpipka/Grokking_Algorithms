@@ -33,7 +33,6 @@ def find_lowest_cost_node(costs):
             lowest_cost = cost                             #То он назначаеся новым узлом с наименьшей стоимостью
             lowest_cost_node = node
 
-    print(node, ':', lowest_cost)
     return lowest_cost_node
 
 node = find_lowest_cost_node(costs)         #Ищем узел с наименьшей стоимостью среди необработанных
